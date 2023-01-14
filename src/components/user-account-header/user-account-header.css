@@ -1,0 +1,26 @@
+.user-account-header {
+    padding: 1rem;
+    color: #525252;
+    background-color: #bdbdbd;
+}
+
+.user-data {
+    margin-bottom: 0.25rem;
+}
+
+.logo {
+    margin: 0 auto 0 auto;
+}
+
+.logout {
+    margin-top: 0.25rem;
+    margin-left: auto;
+    background-color: steelblue;
+    color: #ffffff;
+    height: 40px;
+}
+
+.logout:hover {
+    background-color: #4f4f4f;
+    color: white;
+}

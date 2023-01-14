@@ -1,0 +1,49 @@
+.mechanic-button-panel {
+    margin-left: 1rem;
+    text-align: center;
+}
+
+.panel:hover {
+    background-color: #a6ccf8;
+    cursor: pointer;
+    transition: background 1s ease;
+}
+
+.panel:active {
+    background-color: #69a2ee;
+    transition: background 0.25s ease;
+}
+
+.panel-header {
+    background-color: #a2a2a2;
+}
+
+.buy-btn {
+    height: 40px;
+    border: 1px solid black;
+}
+
+.buy-btn:hover {
+    background-color: #a6ccf8;
+    cursor: pointer;
+}
+
+.taxi-panel {
+    border: 1px solid black;
+    height: 100px;
+    text-align: center;
+}
+
+.taxi-btn {
+    margin-top: 1rem;
+}
+
+.taxi-btn:hover {
+    background-color: #a6ccf8;
+    cursor: pointer;
+    transition: background 1s ease;
+}
+
+.status-string {
+    color: green;
+}

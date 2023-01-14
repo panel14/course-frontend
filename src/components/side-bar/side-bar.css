@@ -1,0 +1,25 @@
+.side-bar {
+    width: 10%;
+}
+
+.head-li {
+    background-color: #a4a4a4;
+}
+
+.item-li:hover {
+    cursor: pointer;
+    background-color: #a6ccf8;
+    transition: background 1s ease;
+}
+
+.item-li:active {
+    background-color: #69a2ee;
+    transition: background 0.25s ease;
+}
+
+li {
+    text-align: center;
+    vertical-align: center;
+    height: 3rem;
+    border: 1px solid #a4a4a4;
+}

@@ -1,0 +1,18 @@
+.content-table {
+    height: auto;
+    width: 50%;
+    margin-left: 3rem;
+}
+
+.table-head {
+    background-color: #a4a4a4;
+}
+
+tr {
+    cursor: pointer;
+}
+
+.row-tr:hover {
+    background-color: #a6ccf8;
+    transition: background 1s ease;
+}

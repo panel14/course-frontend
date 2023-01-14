@@ -1,0 +1,24 @@
+.login-page {
+    margin: 2rem auto 0 auto;
+    max-width: 400px;
+    border: 1px solid #78b2ef;
+    border-radius: 10px;
+    padding: 1rem 3rem 1rem 3rem;
+}
+
+.login-page h3 {
+    text-align: center;
+}
+
+.login-page input {
+    height: 40px;
+    margin-bottom: 0.5rem;
+}
+
+.login-page button {
+    margin: 0.5rem 0 0.5rem 7rem;
+}
+
+.login-page button:hover {
+    background-color: steelblue;
+}

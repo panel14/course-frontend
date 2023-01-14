@@ -1,0 +1,19 @@
+.item-status-window {
+    margin-left: 1rem;
+    width: 15%;
+}
+
+.item-name {
+    background-color: #adadad;
+    text-align: left;
+}
+
+.item {
+    border-top: none;
+    text-align: left;
+}
+
+.go-to-btn {
+    margin-top: 1rem;
+    margin-left: 35%;
+}

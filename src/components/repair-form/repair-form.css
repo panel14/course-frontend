@@ -1,0 +1,17 @@
+.repair-form {
+    margin-left: 2rem;
+}
+
+.details {
+    margin-left: 2rem;
+}
+
+.repair-button {
+    height: 40px;
+    margin-left: 1rem;
+    margin-top: 2rem;
+}
+
+.repair-button:hover {
+    background-color: #69a2ee;
+}
