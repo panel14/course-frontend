@@ -1,0 +1,15 @@
+.guild-panel {
+    margin-left: 2rem;
+}
+
+.current {
+    background-color: #69a2ee;
+}
+
+.guild-label {
+    font-size: 0.85rem;
+}
+
+.btn-guild {
+    margin-left: 6rem;
+}

@@ -25,11 +25,11 @@ export default class UserAccountHeader extends Component{
                 <div className="user-data">
                     <h5>{name} {surname}: {role}</h5>
                     <h6>User ID: {id}</h6>
-                    <h6>Money: {this.props.money}</h6>
+                    <h6>Деньги: {this.props.money}</h6>
                 </div>
 
                 <div className="logo">
-                    <h1>Pimp My Car</h1>
+                    <h1>Тачка на прокачку</h1>
                 </div>
                 <Link to="/log"
                       onClick={this.logout}>log out</Link>

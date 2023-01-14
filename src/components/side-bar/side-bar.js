@@ -18,7 +18,7 @@ const SideBar = ({elements, onClick}) => {
         <div className="side-bar">
             <ul className="list-group side-bar-list">
                 <li key="100"
-                    className="head-li">Menu</li>
+                    className="head-li">Меню</li>
                 {createdItems}
             </ul>
         </div>

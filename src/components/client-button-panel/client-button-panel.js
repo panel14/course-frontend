@@ -112,16 +112,16 @@ export default class ClientButtonPanel extends Component {
             <div className="client-button-panel d-flex">
                 <ul className="list-group">
                     <li className="list-group-item panel-header">
-                        Options:
+                        Действия:
                     </li>
                     <li className="list-group-item panel" onClick={this.showAllCars}>
-                        Show cars
+                        Показать машины
                     </li>
                     <li className="list-group-item panel" onClick={this.showMechanics}>
-                        Show available mechanics
+                        Показать доступных механиков
                     </li>
                     <li className="list-group-item panel" onClick={this.createOrder}>
-                        Create order
+                        Создать заказ
                     </li>
                 </ul>
                 {table}

@@ -169,6 +169,8 @@ export default class RepairForm extends Component {
         this.setState({
             form: curForm
         });
+
+        console.log(el);
     }
 
     processRepair = () => {

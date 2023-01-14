@@ -6,6 +6,7 @@ import ItemsService from "../../services/items-service";
 import ContentTable from "../content-table";
 import ErrorPanel from "../error-panel";
 import RepairForm from "../repair-form";
+import GuildPanel from "../guild-panel";
 
 export default class MechanicButtonPanel extends Component {
     buttonEnum = {
@@ -29,7 +30,8 @@ export default class MechanicButtonPanel extends Component {
         showTaxi: false,
         taxiResponse: '',
         buyingString: '',
-        showRepair: false
+        showRepair: false,
+        showGuild: false
     }
     swapi = new SwapiService();
     itemsService = new ItemsService();
@@ -52,7 +54,8 @@ export default class MechanicButtonPanel extends Component {
             error: false,
             showTaxi: false,
             buyingString: '',
-            showRepair: false
+            showRepair: false,
+            showGuild: false
         })
     }
 
@@ -101,7 +104,8 @@ export default class MechanicButtonPanel extends Component {
         this.setState({
             isTbl: false,
             isBtnHide: true,
-            showRepair: true
+            showRepair: true,
+            showGuild: false
         })
     }
 
@@ -156,9 +160,20 @@ export default class MechanicButtonPanel extends Component {
     showTaxiPanel = () => {
         this.setState({
             isTbl: false,
-            isBtn: false,
-            showTaxi: true
+            isBtnHide: true,
+            showTaxi: true,
+            showGuild: false
         });
+    }
+
+    showGuildPanel = () => {
+        this.setState({
+            isTbl: false,
+            isBtnHide: true,
+            showTaxi: false,
+            showGuild: true,
+            showRepair: false
+        })
     }
 
     processTaxi = (state, response, isPay) => {
@@ -214,7 +229,7 @@ export default class MechanicButtonPanel extends Component {
         const table = (this.state.isTbl) ? <ContentTable headers={this.state.headers}
                                                          data={this.state.data}
                                                          caption={this.state.caption}
-                                                         onClick={this.onTableRowClick}/> : null
+                                                         onClick={this.onTableRowClick}/> : null;
 
         const btn = (this.state.isBtnHide) ? null : this.createButton()
         const error = (this.state.error) ? <ErrorPanel errorMessage={this.state.errorText}/> : null;
@@ -226,27 +241,32 @@ export default class MechanicButtonPanel extends Component {
         const repair = (this.state.showRepair) ? <RepairForm id={this.state.roleId}
                                                              changeMoney={this.props.moneyChange}/> : null;
 
+        const guildPanel = (this.state.showGuild) ? <GuildPanel id={this.state.roleId}/> : null;
+
         return(
             <Fragment>
                 <div className="mechanic-button-panel d-flex">
                     <ul className="list-group">
                         <li className="list-group-item panel-header">
-                            Options:
+                            Действия:
                         </li>
                         <li className="list-group-item panel" onClick={this.showAllCars}>
-                            Show all cars
+                            Показать машины
                         </li>
                         <li className="list-group-item panel" onClick={this.showDetailsMarket}>
-                            Go to details market
+                            В магазин деталей
                         </li>
                         <li className="list-group-item panel" onClick={this.showOrders}>
-                            Go to orders
+                            Перейти к заказам
                         </li>
                         <li className="list-group-item panel" onClick={this.showDecorMarket}>
-                            Go to decor market
+                            В магазин декора
                         </li>
                         <li className="list-group-item panel" onClick={this.showTaxiPanel}>
-                            Taxi
+                            Такси
+                        </li>
+                        <li className="list-group-item panel" onClick={this.showGuildPanel}>
+                            Гильдии
                         </li>
                     </ul>
                     {table}
@@ -255,6 +275,7 @@ export default class MechanicButtonPanel extends Component {
                 {btn}
                 {statusString}
                 {taxiPanel}
+                {guildPanel}
                 {error}
             </Fragment>
         )

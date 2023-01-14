@@ -105,6 +105,24 @@ export default class SwapiService {
         return await this.sendGetRequest(fullUrl);
     }
 
+    getAllGuilds = async () => {
+        const fullUrl = `${this._apiUrls.mechanic}/guild-all`;
+
+        return await this.sendGetRequest(fullUrl);
+    }
+
+    joinGuild = async (mechanicId, guildId) => {
+        const fullUrl = `${this._apiUrls.mechanic}/join-guild?mechanicId=${mechanicId}&guildId=${guildId}`
+
+        return await this.sendPostRequest(fullUrl, {});
+    }
+
+    leaveGuild = async (mechanicId) => {
+        const fullUrl = `${this._apiUrls.mechanic}/leave-guild?mechanicId=${mechanicId}`
+
+        return await this.sendPostRequest(fullUrl, {});
+    }
+
     //Decor API
     getAllShops = async() => {
         const result = await this.sendGetRequest(`${this._apiUrls.decor}/shops`);

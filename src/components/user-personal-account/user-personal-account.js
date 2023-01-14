@@ -83,10 +83,19 @@ export default class UserPersonalAccount extends Component {
 
         const rawItem = this.state.itemsValues[id];
         if (rawItem['needInfo']) {
-            const index = Object.keys(rawItem)[0]
+            const index = Object.keys(rawItem)[0];
+
             const method = this.mechanicRequests[index];
 
             let methodIndex = rawItem[index];
+
+            if (methodIndex === null || methodIndex.length === 0) {
+                const status = (index === 'guildId') ? 'Вы не в гильдии' : 'Нет деталей';
+                this.setState({
+                    windowItem: [{'Статус': status}]
+                });
+                return;
+            }
 
             if (index === 'details')  methodIndex = localStorage.getItem('roleId');
 
