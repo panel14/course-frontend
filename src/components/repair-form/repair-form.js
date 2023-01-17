@@ -185,17 +185,29 @@ export default class RepairForm extends Component {
 
     submitForm = () => {
         const order = this.state.form;
-        const request = {
-            orderId: order[0].id,
-            newEngineId: order[1].id,
-            newWheelsId: order[2].id,
-            newGearBoxId: order[3].id,
-            newBodyId: order[4].id
-        }
 
-        this.swapi.repairCar(request)
-            .then(this.processRepair)
-            .catch((res) => this.onError(res.message));
+        let isOk = true;
+
+        order.forEach(el => {
+            if (el === null) {
+                this.onError('Не все параметры починки выбраны!');
+                isOk = false;
+            }
+        })
+
+        if (isOk) {
+            const request = {
+                orderId: order[0].id,
+                newEngineId: order[1].id,
+                newWheelsId: order[2].id,
+                newGearBoxId: order[3].id,
+                newBodyId: order[4].id
+            }
+
+            this.swapi.repairCar(request)
+                .then(this.processRepair)
+                .catch((res) => this.onError(res.message));
+        }
     }
 
     render() {

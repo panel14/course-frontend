@@ -107,7 +107,7 @@ export default class OrderForm extends Component {
 
     onCarChoice = (row) => {
         const index = parseInt(row[0]);
-
+        console.log(this.state.carsDto);
         this.state.carsDto.forEach((item) => {
             if (item.id === index) {
                 this.setState((state) => {
@@ -148,9 +148,38 @@ export default class OrderForm extends Component {
         });
     }
 
+    checkCarDto = (car) => {
+        const body = car.body.status === 'РАБОЧАЯ';
+        const engine = car.engine.status === 'РАБОЧАЯ';
+        const wheels = car.wheels.status === 'РАБОЧАЯ';
+        const gearbox = car.gearbox.status === 'РАБОЧАЯ';
+
+        return (body && engine && wheels && gearbox);
+    }
+
     sendOrder = () => {
 
         const cost = parseInt(this.state.cost);
+        if (!cost) {
+            this.onError('Цена должна быть числом!');
+            return;
+        }
+
+        if (cost <= 0) {
+            this.onError('Цена должна быть больше 0!');
+            return;
+        }
+
+        if (!this.state.choice.mCh || !this.state.choice.cCh) {
+            this.onError('Не все параметры заказа выбраны!');
+            return;
+        }
+
+        if (this.checkCarDto(this.state.choice.car)) {
+            this.onError('У машины нет сломанных деталей!');
+            return;
+        }
+
         const request = {
             id: 0,
             mechanic: this.state.choice.mechanic,

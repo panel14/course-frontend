@@ -181,15 +181,19 @@ export default class ItemsService {
             return [];
 
         let rows = [];
-
         mechanics.forEach((item) => {
             let curRow = [];
 
-            const {id, name, surname, guild: {name: gName}} = item;
+            const {id, name, surname, guild} = item;
+            let gNoName = 'Не в гильдиии';
+
+            if (guild !== null)
+                gNoName = guild.name;
+
             curRow.push(id.toString());
             curRow.push(name.toString());
             curRow.push(surname.toString());
-            curRow.push(gName.toString());
+            curRow.push(gNoName.toString());
 
             rows.push(curRow);
         })
